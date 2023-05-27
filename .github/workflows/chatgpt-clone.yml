@@ -1,0 +1,20 @@
+name: Build ChatGPT Clone
+
+on:
+  push:
+    branches: [ "chatgpt-clone" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Restore Packages
+      working-directory: clone/Zenzel.OpenAI
+      run: dotnet restore Zenzel.OpenAI.sln
+    
+    - name: Build Project
+      working-directory: clone/Zenzel.OpenAI
+      run: dotnet build Zenzel.OpenAI.sln --configuration Debug
