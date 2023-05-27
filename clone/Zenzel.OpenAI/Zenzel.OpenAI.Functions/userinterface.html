@@ -72,7 +72,24 @@
                     url: 'http://localhost:7224/api/TextCompletion',
                     data: '{"prompt": "' + userInput + '"}',
                     success: function (data) {
-                        appendChatbotMessage(data.completions[0]);
+                        var chatbotHtml = '';
+
+                        if (data.completions.length > 1)
+                        {
+                            chatbotHtml += '<ul>';
+
+                            for (var i = 0; i < data.completions.length; i++) {
+                                chatbotHtml += '<li>' + data.completions[i] + '</li>';
+                            }
+
+                            chatbotHtml += '</ul>';
+                        }
+                        else
+                        {
+                            chatbotHtml = data.completions[0];
+                        }
+
+                        appendChatbotMessage(chatbotHtml);
                     }
                 });
             }
