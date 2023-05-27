@@ -62,7 +62,7 @@ namespace Zenzel.OpenAI.Functions
 
                 CompletionResponse userResponse = new CompletionResponse()
                 {
-                    Completions = openAiResponse!.Choices!.Select(a => a.Text).ToArray()
+                    Completions = openAiResponse!.Choices!.Select(a => a.Text.TrimStart("\n\n".ToCharArray())).ToArray()
                 };
 
                 string userResponseBody = JsonConvert.SerializeObject(userResponse);
