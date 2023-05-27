@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatGPT Clone</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">ChatGPT Clone</h1>
+
+        <div class="card mb-4">
+            <div class="card-body" id="chat-log">
+                <!-- Chat log will be dynamically generated here -->
+            </div>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" placeholder="Type your message...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Handle user input when send button is clicked
+            $('#send-button').click(function () {
+                handleUserInput();
+            });
+
+            // Handle user input when Enter key is pressed
+            $('#user-input').keypress(function (event) {
+                if (event.which == 13) {
+                    event.preventDefault();
+                    handleUserInput();
+                }
+            });
+
+            function handleUserInput() {
+                var userInput = $('#user-input').val();
+                appendUserMessage(userInput);
+                sendUserInputToServer(userInput);
+                $('#user-input').val('');
+            }
+
+            function appendUserMessage(message) {
+                var messageElement = $('<div class="alert alert-info" role="alert"></div>');
+                messageElement.text(message);
+                $('#chat-log').append(messageElement);
+                scrollToBottom();
+            }
+
+            function appendChatbotMessage(message) {
+                var messageElement = $('<div class="alert alert-light" role="alert"></div>');
+                messageElement.text(message);
+                $('#chat-log').append(messageElement);
+                scrollToBottom();
+            }
+
+            function sendUserInputToServer(userInput) {
+                // Implement your logic to send user input to the server and receive a response
+                // You can use AJAX or any other method to communicate with the server
+                // Once you receive the response, call appendChatbotMessage(response) to display it in the chat log
+                // appendChatbotMessage('Test');
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost:7224/api/TextCompletion',
+                    data: '{"prompt": "' + userInput + '"}',
+                    success: function (data) {
+                        appendChatbotMessage(data.completions[0]);
+                    }
+                });
+            }
+
+            function scrollToBottom() {
+                $('#chat-log').scrollTop($('#chat-log')[0].scrollHeight);
+            }
+        });
+    </script>
+</body>
+</html>

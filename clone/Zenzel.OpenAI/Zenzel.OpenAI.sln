@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33717.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenzel.OpenAI.Functions", "Zenzel.OpenAI.Functions\Zenzel.OpenAI.Functions.csproj", "{09417C65-D8D9-4C78-B91F-572B0792CFF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenzel.OpenAI", "Zenzel.OpenAI\Zenzel.OpenAI.csproj", "{077FFAF9-98B9-4762-A88E-5E8516E4A03F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09417C65-D8D9-4C78-B91F-572B0792CFF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09417C65-D8D9-4C78-B91F-572B0792CFF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09417C65-D8D9-4C78-B91F-572B0792CFF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09417C65-D8D9-4C78-B91F-572B0792CFF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{077FFAF9-98B9-4762-A88E-5E8516E4A03F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{077FFAF9-98B9-4762-A88E-5E8516E4A03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{077FFAF9-98B9-4762-A88E-5E8516E4A03F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{077FFAF9-98B9-4762-A88E-5E8516E4A03F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81744719-FB01-4BB4-BF9F-5AD609F97504}
+	EndGlobalSection
+EndGlobal
