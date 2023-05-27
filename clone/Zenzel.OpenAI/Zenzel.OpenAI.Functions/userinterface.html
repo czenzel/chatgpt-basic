@@ -56,7 +56,7 @@
 
             function appendChatbotMessage(message) {
                 var messageElement = $('<div class="alert alert-light" role="alert"></div>');
-                messageElement.text(message);
+                messageElement.html(message);
                 $('#chat-log').append(messageElement);
                 scrollToBottom();
             }
@@ -73,7 +73,7 @@
                     data: '{"prompt": "' + userInput + '"}',
                     success: function (data) {
                         var chatbotHtml = data.completions[0];
-                        chatbotHtml = chatbotHtml.replace("\n", "<br />");
+                        chatbotHtml = chatbotHtml.replace(/\n/ig, '<br/>');
                         appendChatbotMessage(chatbotHtml);
                     }
                 });
@@ -82,7 +82,6 @@
             function scrollToBottom() {
                 $('#chat-log').scrollTop($('#chat-log')[0].scrollHeight);
             }
-        });
     </script>
 </body>
 </html>
